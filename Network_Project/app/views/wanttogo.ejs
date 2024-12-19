@@ -1,0 +1,174 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<meta
+			http-equiv="X-UA-Compatible"
+			content="ie=edge" />
+		<title>Want-to-Go List</title>
+
+		<!-- Adding a Google Font for better typography -->
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+			rel="stylesheet" />
+
+		<!-- Bootstrap CSS -->
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+			crossorigin="anonymous" />
+
+		<style>
+			body {
+				font-family: 'Poppins', sans-serif;
+				background-image: url('background3.jpg');
+				background-repeat: no-repeat;
+				background-size: cover;
+				margin: 0;
+				padding: 0;
+				color: #fff;
+			}
+
+			h1 {
+				font-size: 3rem;
+				text-align: center;
+				color: #fff;
+				text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+				margin-top: 50px;
+			}
+
+			.navbar {
+				background-color: rgba(0, 0, 0, 0.7);
+			}
+
+			.navbar-brand {
+				color: #add8e6;
+				font-size: 1.5rem;
+				font-weight: 600;
+			}
+
+			.navbar-toggler-icon {
+				background-color: #fff;
+			}
+
+			.city-list {
+				text-align: center;
+				margin-top: 30px;
+			}
+
+			.city-list ul {
+				list-style-type: none;
+				padding: 0;
+			}
+
+			.city-list li {
+				font-size: 1.5rem;
+				margin: 15px 0;
+				padding: 10px;
+				background-color: rgba(0, 0, 0, 0.6);
+				border-radius: 8px;
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+			}
+
+			.form-inline {
+				display: flex;
+				justify-content: center;
+				margin-top: 15px;
+			}
+
+			.form-control {
+				border-radius: 20px;
+				padding: 10px;
+				font-size: 1rem;
+				border: none;
+				width: 300px;
+			}
+
+			.btn-outline-success {
+				border-radius: 20px;
+				padding: 10px 20px;
+				background-color: #28a745;
+				color: #fff;
+				border: none;
+				margin-left: 10px;
+			}
+
+			.btn-outline-success:hover {
+				background-color: #218838;
+			}
+
+			@media (max-width: 768px) {
+				.form-control {
+					width: 250px;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- Navbar -->
+		<nav class="navbar navbar-expand-lg navbar-dark mb-2">
+			<a
+				class="navbar-brand"
+				href="#"
+				>Want-to-Go List</a
+			>
+			<button
+				class="navbar-toggler"
+				type="button"
+				data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent"
+				aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div
+				class="collapse navbar-collapse"
+				id="navbarSupportedContent">
+				<form
+					method="POST"
+					action="/search"
+					class="form-inline my-2 my-lg-0">
+					<input
+						class="form-control mr-sm-2"
+						name="Search"
+						type="search"
+						placeholder="Search"
+						aria-label="Search" />
+					<button
+						class="btn btn-outline-success my-2 my-sm-0"
+						type="submit">
+						Search
+					</button>
+				</form>
+			</div>
+		</nav>
+
+		<!-- Main Content -->
+		<div class="container">
+			<div class="city-list">
+				<h1>Your Want-to-Go List:</h1>
+				<ul id="citiesList">
+					<% if (wanttogolist && wanttogolist.length > 0) { %> <%
+					wanttogolist.forEach(function(city) { %>
+					<li><%= city %></li>
+					<% }); %> <% } else { %>
+					<li>No cities in your Want-to-Go list!</li>
+					<% } %>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Bootstrap JS and dependencies -->
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.0/dist/umd/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	</body>
+</html>
